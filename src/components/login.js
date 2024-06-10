@@ -59,12 +59,12 @@ const Login = () => {
   return (
     <div >
         <Header></Header>
-        <div className="absolute">
-            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/cacfadb7-c017-4318-85e4-7f46da1cae88/e43aa8b1-ea06-46a5-abe3-df13243e718d/IN-en-20240603-popsignuptwoweeks-perspective_alpha_website_large.jpg"></img>
+        <div className="fixed">
+            <img className="h-screen w-screen object-cover" src="https://assets.nflxext.com/ffe/siteui/vlv3/cacfadb7-c017-4318-85e4-7f46da1cae88/e43aa8b1-ea06-46a5-abe3-df13243e718d/IN-en-20240603-popsignuptwoweeks-perspective_alpha_website_large.jpg"></img>
         </div>
         <div >
-            <form onSubmit={(e)=>e.preventDefault()} className="bg-black absolute p-12 w-[30%] my-32 mx-auto right-0 left-0  text-white bg-opacity-80">
-                <h1 className="font-bold text-3xl py-4">{isSignIn ? "Sign In" : "Sign Up"}</h1>
+            <form onSubmit={(e)=>e.preventDefault()} className="bg-black absolute p-12 sm:w-[50%] md:w-[40%] lg:w-[35%] w-full   my-32 mx-auto right-0 left-0  text-white bg-opacity-80">
+                <h1 className="font-bold text-3xl py-4 ">{isSignIn ? "Sign In" : "Sign Up"}</h1>
                 {!isSignIn &&
                 (<input type="text" placeholder="Full Name" className="p-4 my-4 w-full bg-gray-700 rounded-md"></input>)
                 }

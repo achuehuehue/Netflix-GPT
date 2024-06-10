@@ -51,28 +51,28 @@ const Header = () => {
   return (
     <div>
         <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
-            {/* <img className="w-44" src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"></img> */}
+            <h1 className="text-red-700 text-5xl mx-auto md:mx-0 " >NetflixGPT</h1>
             {user && (
-                <div className=" flex p-2 ">
+                <div className=" flex p-2 justify-between">
                     {
                       showGptSearch ? 
-                      <div className=" ">
-                        <select  className="p-2 m-2 bg-gray-900 text-white " onChange={handleLangChange}>
+                      <div className="flex justify-center md:ml-auto sm:ml-auto ml-auto">
+                        <select  className=" p-2 m-2 bg-gray-900 text-white " onChange={handleLangChange}>
                           <option value="en" >English</option>
                           <option value="hindi">Hindi</option>
                         </select>
                         <button className="py-2 my-2 px-4 mx-4 bg-purple-800 rounded-lg hover:opacity-50" onClick={GPT_search} >{showGptSearch ?
                        "Home Page" : "GPT Search"}</button>
-                        <img className=" " src="https://occ-0-2483-3647.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXz4LMjJFidX8MxhZ6qro8PBTjmHbxlaLAbk45W1DXbKsAIOwyHQPiMAuUnF1G24CLi7InJHK4Ge4jkXul1xIW49Dr5S7fc.png?r=e6e"></img>
-                        <button className=" font-bold  bg-black rounded-lg text-red-700  cursor-pointer  hover:bg-white" onClick={signOutOption}>Sign out</button>
+                        {/* <img className=" " src="https://occ-0-2483-3647.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXz4LMjJFidX8MxhZ6qro8PBTjmHbxlaLAbk45W1DXbKsAIOwyHQPiMAuUnF1G24CLi7InJHK4Ge4jkXul1xIW49Dr5S7fc.png?r=e6e"></img> */}
+                        <button className="py-2 my-2 px-4 mx-4 font-bold  bg-black rounded-lg text-red-700  cursor-pointer  hover:bg-white" onClick={signOutOption}>Sign out</button>
                         </div>
                       :
                       
-                      <div className="">
+                      <div className="flex justify-center md:ml-auto sm:ml-auto ml-auto">
                       <button className="py-2 my-2 px-4 mx-4  bg-purple-800 rounded-lg hover:opacity-50" onClick={GPT_search} >{showGptSearch ?
                       "Home Page" : "GPT Search"}</button>
-                      <img className=" " src="https://occ-0-2483-3647.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXz4LMjJFidX8MxhZ6qro8PBTjmHbxlaLAbk45W1DXbKsAIOwyHQPiMAuUnF1G24CLi7InJHK4Ge4jkXul1xIW49Dr5S7fc.png?r=e6e"></img>
-                      <button className=" font-bold  bg-black rounded-lg text-red-700  cursor-pointer  hover:bg-white" onClick={signOutOption}>Sign out</button>
+                      {/* <img className=" " src="https://occ-0-2483-3647.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXz4LMjJFidX8MxhZ6qro8PBTjmHbxlaLAbk45W1DXbKsAIOwyHQPiMAuUnF1G24CLi7InJHK4Ge4jkXul1xIW49Dr5S7fc.png?r=e6e"></img> */}
+                      <button className="py-2 my-2 px-4 mx-4 font-bold  bg-black rounded-lg text-red-700  cursor-pointer  hover:bg-white" onClick={signOutOption}>Sign out</button>
                       </div>
                     }
             </div>)}

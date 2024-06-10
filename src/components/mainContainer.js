@@ -11,9 +11,9 @@ const MainContainer = () => {
     const mainMovie=movies[0];
     // console.log(mainMovie.id)
   return (
-    <div className="py-0 ">
-        <VideoTitle title={mainMovie.original_title} overview={mainMovie.overview}  ></VideoTitle>
-        <VideoBackground movieId={mainMovie.id}></VideoBackground>
+    <div className="pt-[24%] sm:pt-[10%] md:pt-[5%] lg:pt-[1%] bg-black  w-screen ">
+        <VideoTitle  title={mainMovie.original_title} overview={mainMovie.overview}  ></VideoTitle>
+        <VideoBackground  movieId={mainMovie.id}></VideoBackground>
     </div>
   )
 }

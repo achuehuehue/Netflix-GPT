@@ -21,7 +21,7 @@ const GptSearchBar = () => {
     const handleGptSearchClick= async ()=>{
         // console.log(searchText.current.value);
         const gptQuery=`Act as a Movie Recommendation System and
-         suggest some movies containing `
+         suggest movies. The user can give some words which can be a genre, mood, actor or name of movie. User input is: `
           + searchText.current.value+ `The movie list should be in form of json object.
            The example is given below.
             [
@@ -57,19 +57,19 @@ const GptSearchBar = () => {
           const extractedJson = JSON.parse(extractStringInsideCodeBlock(text));
         //   console.log(extractedJson);
           const extractedJsonName=extractedJson.map(x=>x?.name);
-        //   console.log(extractedJsonName);
+          console.log(extractedJsonName);
           const promiseArray=extractedJson.map(movie=>searchMovie(movie)); //[promise,promise,promise.....]
           const tmdbResult=await Promise.all(promiseArray);
-          console.log(tmdbResult);
+        //   console.log(tmdbResult);
           dispatch(addGptMovieResults({movieNames:extractedJsonName,movieResults:tmdbResult}));
     }
 
 
   return (
-    <div className="pt-[10%] flex justify-center" >
-        <form className="w-1/2 bg-black grid grid-cols-12" onSubmit={(e)=>e.preventDefault()}>
+    <div className="lg:pt-[8%] md:pt-[10%] sm:pt-[20%] pt-[20%] flex justify-center " >
+        <form className="w-full sm:w-3/4 md:w-3/4 lg:w-1/2 bg-black grid grid-cols-12" onSubmit={(e)=>e.preventDefault()}>
             <input ref={searchText} className="py-4 px-8 m-4 col-span-9" type="text" placeholder={lang[langKey].gptSearchPlaceholder}></input>
-            <button onClick={handleGptSearchClick} className="col-span-3 m-4 px-4 py-2 rounded-lg bg-red-700 hover:opacity-50 text-white" >{lang[langKey].search}</button>
+            <button onClick={handleGptSearchClick} className="col-span-3 m-2 px-4 py-2 rounded-lg bg-red-700 hover:opacity-50 text-white" >{lang[langKey].search}</button>
         </form>
     </div>
   )
