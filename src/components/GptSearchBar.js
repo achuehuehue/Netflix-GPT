@@ -2,9 +2,9 @@ import React, { useRef } from 'react'
 import lang from '../utils/languageConstants'
 import { useDispatch, useSelector } from 'react-redux'
 import groq from '../utils/openAI';
-import Error from './Error';
 import { API_OPTIONS } from '../utils/constants';
 import { addGptMovieResults } from '../utils/gptSlice';
+
 
 
 const GptSearchBar = () => {
@@ -41,9 +41,7 @@ const GptSearchBar = () => {
             model: "llama3-8b-8192",
             temperature:0.0,
           });
-          if(!result){
-            <Error></Error>
-          }
+          
           const text=result?.choices[0]?.message?.content;
           const extractStringInsideCodeBlock = (text) => {
             const regex = /```([\s\S]*?)```/;
@@ -56,6 +54,9 @@ const GptSearchBar = () => {
           
           const extractedJson = JSON.parse(extractStringInsideCodeBlock(text));
         //   console.log(extractedJson);
+        if(!extractedJson){
+         return
+        }
           const extractedJsonName=extractedJson.map(x=>x?.name);
           console.log(extractedJsonName);
           const promiseArray=extractedJson.map(movie=>searchMovie(movie)); //[promise,promise,promise.....]
