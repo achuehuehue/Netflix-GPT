@@ -22,8 +22,8 @@ const GptSearchBar = () => {
     const handleGptSearchClick= async ()=>{
         // console.log(searchText.current.value);
         const gptQuery=`Act as a Movie Recommendation System and
-         suggest movies. The user can give some words which can be a genre, mood, actor or name of movie. User input is: `
-          + searchText.current.value+ `The movie list should be in form of json object.
+         suggest movies which contain the genre: `
+          + searchText.current.value+ `. The movie list should be in form of json object.
            The example is given below.
             [
             {
