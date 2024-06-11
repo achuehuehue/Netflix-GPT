@@ -7,6 +7,7 @@ import { addGptMovieResults } from '../utils/gptSlice';
 
 
 
+
 const GptSearchBar = () => {
     const searchText=useRef(null);
     const langKey=useSelector(store=>store.lang.lang);
@@ -52,10 +53,12 @@ const GptSearchBar = () => {
             return null;
           };
           
-          const extractedJson = JSON.parse(extractStringInsideCodeBlock(text));
+          let extractedJson = JSON.parse(extractStringInsideCodeBlock(text));
         //   console.log(extractedJson);
         if(!extractedJson){
-         return
+          extractedJson=[{name:"Please enter another genre/movie/actor name"}];
+         console.log("not found");
+        
         }
           const extractedJsonName=extractedJson.map(x=>x?.name);
           console.log(extractedJsonName);
