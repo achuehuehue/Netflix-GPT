@@ -7,7 +7,10 @@ import { addPopularTvSeries, addTopMovies, addTopTvSeries } from "../utils/movie
 const useTopRatedMovies = () => {
     const dispatch=useDispatch();
     const getTopMovies=async ()=>{
-        const data =await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', API_OPTIONS);
+        const data =await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', API_OPTIONS,
+            {
+            mode: 'no-cors'
+        });
         const json=await data.json();
         // console.log(json.results);
         dispatch( addTopMovies(json?.results));

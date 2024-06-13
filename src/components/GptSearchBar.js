@@ -14,7 +14,10 @@ const GptSearchBar = () => {
     const dispatch=useDispatch(null);
 
     const searchMovie=async(movie)=>{
-        const data =await fetch('https://api.themoviedb.org/3/search/movie?query=' +movie.name+ '&include_adult=false&language=en-US&page=1', API_OPTIONS);
+        const data =await fetch('https://api.themoviedb.org/3/search/movie?query=' +movie.name+ '&include_adult=false&language=en-US&page=1', API_OPTIONS,
+          {
+          mode: 'no-cors'
+      });
         const json=await data.json();
         return json.results;
     }

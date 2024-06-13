@@ -8,7 +8,10 @@ const VideoBackground = ({movieId}) => {
     const trailerVideos=useSelector((store)=>store.movies?.trailerVideo)
     const dispatch=useDispatch();
     const getMovieTrailer=async ()=>{
-        const data=await fetch('https://api.themoviedb.org/3/movie/'+movieId+'/videos?language=en-US', API_OPTIONS);
+        const data=await fetch('https://api.themoviedb.org/3/movie/'+movieId+'/videos?language=en-US', API_OPTIONS,
+          {
+          mode: 'no-cors'
+      });
         const json=await data.json();
         // console.log(json);
         const filterData=json?.results?.filter((video)=>video?.type==="Trailer");
