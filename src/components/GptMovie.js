@@ -13,7 +13,6 @@ const GptMovie = () => {
 
   return (
     <div className="p-4 m-4 bg-black bg-opacity-80 text-white flex flex-wrap  ">
-      {console.log("hiiiii")}
         {movieNames.map((movieNames,index)=>
             <div>
             <h1 className="" >{movieNames}</h1>
